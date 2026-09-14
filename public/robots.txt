@@ -31,4 +31,10 @@ Allow: /
 User-agent: YisouSpider
 Allow: /
 
-Sitemap: https://iloveburgundy.cn/sitemap-index.xml
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+Sitemap: https://ningbomei.com/sitemap-index.xml

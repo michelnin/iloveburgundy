@@ -6,7 +6,7 @@ export const SITE = {
     'A Chinese-language guide to Burgundy wine: terroir, producers, rankings, glossary, and study trips.',
   descriptionFr:
     'Un guide en chinois sur les vins de Bourgogne : terroir, domaines, classements, glossaire et voyages d’étude.',
-  url: 'https://iloveburgundy.cn',
+  url: 'https://ningbomei.com',
 } as const;
 
 export const AUTHOR = {
@@ -20,7 +20,7 @@ export const AUTHOR = {
     'Ningbo Mei writes about Burgundy wine, focusing on terroir, producer reviews, and education for Chinese-speaking readers.',
   bioFr:
     "Ningbo Mei écrit sur les vins de Bourgogne, en se concentrant sur le terroir, les domaines et l'éducation des lecteurs sinophones.",
-  url: 'https://iloveburgundy.cn/about',
+  url: 'https://ningbomei.com/about',
   // 可在此补充社交主页链接，会自动写入 Person 的 sameAs 字段
   sameAs: [] as string[],
 } as const;

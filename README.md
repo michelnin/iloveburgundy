@@ -2,7 +2,7 @@
 
 面向中文读者的勃艮第葡萄酒指南。基于 [Astro](https://astro.build) 构建，输出纯静态 HTML，专为搜索引擎与 AI 大模型抓取（GEO）优化。
 
-- 线上地址：https://iloveburgundy.cn
+- 线上地址：https://ningbomei.com（`iloveburgundy.cn` 因域名被抢注 `.com`，现改作 301 跳转到本站，不再是主域名）
 - 技术栈：Astro（`output: 'static'`，零客户端 JS）+ Content Collections + Markdown
 
 ## 本地预览
@@ -106,7 +106,8 @@ draft: false
    - **构建输出目录**：`dist`
    - **Node 版本**：22（如需手动指定，在环境变量里加 `NODE_VERSION=22`）
 4. 部署完成后，Cloudflare 会给一个 `*.pages.dev` 的临时域名，可以先用它验证网站是否正常
-5. 绑定自定义域名 `iloveburgundy.cn`：进入该 Pages 项目 → **自定义域** → 添加 `iloveburgundy.cn`，按提示完成 DNS 解析（如果域名已经托管在 Cloudflare，会自动配置；如果不是，需要先把域名的 DNS 服务器改成 Cloudflare 提供的两个地址）
+5. 绑定自定义域名 `ningbomei.com`：进入该 Pages 项目 → **自定义域** → 添加 `ningbomei.com`，按提示完成 DNS 解析（如果域名已经托管在 Cloudflare，会自动配置；如果不是，需要先把域名的 DNS 服务器改成 Cloudflare 提供的两个地址）
+6. `iloveburgundy.cn` 已改作旧域名，只需在其 DNS/转发设置里做 301 跳转到 `https://ningbomei.com`，不需要再指向本项目
 
 之后每次 `git push` 到 `main` 分支，Cloudflare 都会自动重新构建并发布，不需要手动操作。
 

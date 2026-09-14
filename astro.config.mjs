@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://iloveburgundy.cn',
+  site: 'https://ningbomei.com',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
