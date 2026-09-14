@@ -1,0 +1,26 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import { useTranslations } from '../i18n/ui';
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../consts';
+
+interface Props {
+  entries: CollectionEntry<'notes' | 'rankings' | 'trips' | 'courses'>[];
+  basePath: string;
+  lang: Locale;
+}
+const { entries, basePath, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+{
+  entries.length === 0 ? (
+    <p>{t('list.empty')}</p>
+  ) : (
+    <ul class="card-list">
+      {entries.map((entry) => (
+        <ArticleCard entry={entry} basePath={basePath} lang={lang} />
+      ))}
+    </ul>
+  )
+}

@@ -1,0 +1,50 @@
+---
+import { SITE, LOCALES, type Locale } from '../consts';
+import { useTranslations, localizePath, languageNames } from '../i18n/ui';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const navItems: Array<{ key: Parameters<typeof t>[0]; path: string }> = [
+  { key: 'nav.home', path: '/' },
+  { key: 'nav.notes', path: '/notes/' },
+  { key: 'nav.glossary', path: '/glossary/' },
+  { key: 'nav.rankings', path: '/rankings/' },
+  { key: 'nav.trips', path: '/trips/' },
+  { key: 'nav.courses', path: '/courses/' },
+  { key: 'nav.join', path: '/join/' },
+  { key: 'nav.about', path: '/about/' },
+];
+---
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href={localizePath('/', lang)}>{SITE.title} · {SITE.titleEn}</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={localizePath(item.path, lang)}>{t(item.key)}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="lang-switch">
+      {
+        LOCALES.map((locale) => (
+          <a
+            href={localizePath('/', locale)}
+            aria-current={locale === lang ? 'true' : 'false'}
+          >
+            {languageNames[locale]}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</header>

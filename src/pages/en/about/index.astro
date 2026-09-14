@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { AUTHOR, SITE } from '../../../consts';
+import { faqPageSchema } from '../../../utils/schema';
+
+const faqs = [
+  {
+    question: 'What is this site about?',
+    answer:
+      'I Love Burgundy (iloveburgundy.cn) is a Chinese-language guide to Burgundy wine, covering terroir, producers, glossary terms, rankings, and study trips.',
+  },
+  {
+    question: 'Who writes the content?',
+    answer: `All content is written and maintained by ${AUTHOR.nameEn}, a long-time researcher of Burgundy's wine regions and producers.`,
+  },
+];
+
+const schema = faqPageSchema(faqs);
+---
+
+<BaseLayout
+  title="About"
+  description={`${AUTHOR.nameEn} — ${AUTHOR.jobTitleEn}`}
+  lang="en"
+  path="/en/about/"
+  extraJsonLd={[schema]}
+>
+  <article class="prose">
+    <h1>About {AUTHOR.nameEn}</h1>
+    <p>{AUTHOR.bioEn}</p>
+    <p>
+      This site ({SITE.url}) publishes articles, glossary entries, rankings, and study-trip
+      information about Burgundy wine, primarily for Chinese-speaking readers.
+    </p>
+
+    <h2>FAQ</h2>
+    <dl class="faq">
+      {
+        faqs.map((item) => (
+          <>
+            <dt>{item.question}</dt>
+            <dd>{item.answer}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </article>
+</BaseLayout>

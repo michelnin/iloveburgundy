@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import { localizePath } from '../i18n/ui';
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../consts';
+
+interface Props {
+  entry: CollectionEntry<'notes' | 'rankings' | 'trips' | 'courses'>;
+  basePath: string;
+  lang: Locale;
+}
+const { entry, basePath, lang } = Astro.props;
+const href = localizePath(`${basePath}${entry.id}/`, lang);
+const dateStr = entry.data.date.toISOString().slice(0, 10);
+---
+
+<li class="card">
+  {entry.data.cover && <Image src={entry.data.cover} alt={entry.data.title} width={640} height={360} />}
+  <h3><a href={href}>{entry.data.title}</a></h3>
+  <p class="meta">{dateStr}</p>
+  <p>{entry.data.description}</p>
+  {
+    entry.data.tags.length > 0 && (
+      <ul class="tag-list">
+        {entry.data.tags.map((tag: string) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+    )
+  }
+</li>

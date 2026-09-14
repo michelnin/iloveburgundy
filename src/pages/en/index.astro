@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations, localizePath } from '../../i18n/ui';
+import { SITE } from '../../consts';
+
+const t = useTranslations('en');
+---
+
+<BaseLayout title={SITE.titleEn} description={SITE.descriptionEn} lang="en" path="/en/">
+  <section>
+    <h1>{SITE.title} · {SITE.titleEn}</h1>
+    <p>{t('home.hero')}</p>
+    <p>
+      Most articles on this site are written in Chinese. Start with the
+      <a href={localizePath('/about/', 'en')}>About page</a> for an English introduction.
+    </p>
+  </section>
+</BaseLayout>

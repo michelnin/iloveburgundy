@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { AUTHOR, SITE } from '../../consts';
+import { faqPageSchema } from '../../utils/schema';
+
+const faqs = [
+  {
+    question: '这个网站是做什么的？',
+    answer:
+      '爱勃艮第（iloveburgundy.cn）是一个面向中文读者的勃艮第葡萄酒指南，内容涵盖产区风土、酒庄评述、术语解释、榜单观点与实地游学信息。',
+  },
+  {
+    question: '内容是谁写的？',
+    answer: `全部内容由${AUTHOR.name}（${AUTHOR.nameEn}）撰写和维护，长期研究勃艮第葡萄酒产区与酒庄。`,
+  },
+];
+
+const schema = faqPageSchema(faqs);
+---
+
+<BaseLayout
+  title="关于"
+  description={`${AUTHOR.name} — ${AUTHOR.jobTitle}`}
+  lang="zh"
+  path="/about/"
+  extraJsonLd={[schema]}
+>
+  <article class="prose">
+    <h1>关于{AUTHOR.name}</h1>
+    <p>{AUTHOR.bio}</p>
+    <p>本站（{SITE.url}）持续发布勃艮第葡萄酒相关的文章、术语解释、榜单观点与游学课程信息，服务对象是希望系统了解勃艮第的中文读者。</p>
+
+    <h2>常见问题</h2>
+    <dl class="faq">
+      {
+        faqs.map((item) => (
+          <>
+            <dt>{item.question}</dt>
+            <dd>{item.answer}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </article>
+</BaseLayout>

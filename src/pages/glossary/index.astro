@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('zh');
+const entries = (
+  await getCollection('glossary', ({ data }) => !data.draft && data.lang === 'zh')
+).sort((a, b) => a.data.title.localeCompare(b.data.title, 'zh'));
+---
+
+<BaseLayout title={t('glossary.title')} description={t('glossary.description')} lang="zh" path="/glossary/">
+  <h1>{t('glossary.title')}</h1>
+  <p>{t('glossary.description')}</p>
+  {
+    entries.length === 0 ? (
+      <p>{t('list.empty')}</p>
+    ) : (
+      <ul class="card-list">
+        {entries.map((entry) => (
+          <li class="card">
+            <h3>
+              <a href={`/glossary/${entry.id}/`}>{entry.data.title}</a>
+            </h3>
+            <p>{entry.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizePath } from '../i18n/ui';
+import { articleSchema } from '../utils/schema';
+import { SITE } from '../consts';
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../consts';
+
+interface Props {
+  entry: CollectionEntry<'notes' | 'rankings' | 'trips' | 'courses'>;
+  basePath: string;
+  lang: Locale;
+}
+const { entry, basePath, lang } = Astro.props;
+const t = useTranslations(lang);
+const path = localizePath(`${basePath}${entry.id}/`, lang);
+const url = new URL(path, SITE.url).toString();
+
+const schema = articleSchema({
+  title: entry.data.title,
+  description: entry.data.description,
+  url,
+  datePublished: entry.data.date,
+  dateModified: entry.data.updated,
+  lang,
+});
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  lang={lang}
+  path={path}
+  type="article"
+  extraJsonLd={[schema]}
+>
+  <article class="prose">
+    <h1>{entry.data.title}</h1>
+    <p class="meta">
+      {t('article.publishedOn')} {entry.data.date.toISOString().slice(0, 10)}
+      {entry.data.updated && (
+        <>
+          · {t('article.updated')} {entry.data.updated.toISOString().slice(0, 10)}
+        </>
+      )}
+    </p>
+    <slot />
+    {
+      entry.data.tags.length > 0 && (
+        <ul class="tag-list">
+          {entry.data.tags.map((tag: string) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+    <p><a href={localizePath(basePath, lang)}>&larr; {t('article.backToList')}</a></p>
+  </article>
+</BaseLayout>

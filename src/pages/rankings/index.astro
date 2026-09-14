@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleList from '../../components/ArticleList.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('zh');
+const entries = (
+  await getCollection('rankings', ({ data }) => !data.draft && data.lang === 'zh')
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title={t('nav.rankings')} description="勃艮第榜单与观点文章" lang="zh" path="/rankings/">
+  <h1>{t('nav.rankings')}</h1>
+  <ArticleList entries={entries} basePath="/rankings/" lang="zh" />
+</BaseLayout>

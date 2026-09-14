@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import qrcode from '../../assets/join-qrcode.svg';
+---
+
+<BaseLayout title="入群" description="加入爱勃艮第读者社群" lang="zh" path="/join/">
+  <article class="prose">
+    <h1>加入社群</h1>
+    <p>扫描下方二维码，加入爱勃艮第读者交流群，获取最新文章、榜单与线下活动信息。</p>
+    <Image src={qrcode} alt="爱勃艮第读者群二维码" width={320} height={320} />
+    <p>二维码有效期可能有限，如果失效请通过公众号后台联系我们获取最新入口。</p>
+  </article>
+</BaseLayout>

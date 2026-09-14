@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { AUTHOR, SITE } from '../../../consts';
+import { faqPageSchema } from '../../../utils/schema';
+
+const faqs = [
+  {
+    question: 'Quel est le sujet de ce site ?',
+    answer:
+      "I Love Burgundy (iloveburgundy.cn) est un guide en chinois sur les vins de Bourgogne : terroir, domaines, glossaire, classements et voyages d'étude.",
+  },
+  {
+    question: 'Qui rédige le contenu ?',
+    answer: `Tout le contenu est rédigé et maintenu par ${AUTHOR.nameEn}, qui étudie depuis longtemps les terroirs et domaines de Bourgogne.`,
+  },
+];
+
+const schema = faqPageSchema(faqs);
+---
+
+<BaseLayout
+  title="À propos"
+  description={`${AUTHOR.nameEn} — ${AUTHOR.jobTitleFr}`}
+  lang="fr"
+  path="/fr/about/"
+  extraJsonLd={[schema]}
+>
+  <article class="prose">
+    <h1>À propos de {AUTHOR.nameEn}</h1>
+    <p>{AUTHOR.bioFr}</p>
+    <p>
+      Ce site ({SITE.url}) publie des articles, un glossaire, des classements et des informations
+      sur des voyages d'étude autour du vin de Bourgogne, principalement pour des lecteurs
+      sinophones.
+    </p>
+
+    <h2>FAQ</h2>
+    <dl class="faq">
+      {
+        faqs.map((item) => (
+          <>
+            <dt>{item.question}</dt>
+            <dd>{item.answer}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </article>
+</BaseLayout>

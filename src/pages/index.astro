@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleList from '../components/ArticleList.astro';
+import { useTranslations, localizePath } from '../i18n/ui';
+import { SITE } from '../consts';
+
+const t = useTranslations('zh');
+const notes = (await getCollection('notes', ({ data }) => !data.draft && data.lang === 'zh'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 6);
+
+const entries = [
+  { key: 'nav.trips' as const, path: '/trips/' },
+  { key: 'nav.courses' as const, path: '/courses/' },
+  { key: 'nav.join' as const, path: '/join/' },
+];
+---
+
+<BaseLayout title={SITE.title} description={SITE.description} lang="zh" path="/">
+  <section>
+    <h1>{SITE.title} · {SITE.titleEn}</h1>
+    <p>{t('home.hero')}</p>
+  </section>
+
+  <section>
+    <h2>{t('home.latest')}</h2>
+    <ArticleList entries={notes} basePath="/notes/" lang="zh" />
+    <p><a href={localizePath('/notes/', 'zh')}>{t('home.more')} &rarr;</a></p>
+  </section>
+
+  <section>
+    <h2>{t('home.entries')}</h2>
+    <ul class="entry-grid">
+      {
+        entries.map((item) => (
+          <li>
+            <a href={localizePath(item.path, 'zh')}>{t(item.key)}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleList from '../../components/ArticleList.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('zh');
+const entries = (await getCollection('notes', ({ data }) => !data.draft && data.lang === 'zh')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout title={t('nav.notes')} description="勃艮第葡萄酒相关文章" lang="zh" path="/notes/">
+  <h1>{t('nav.notes')}</h1>
+  <ArticleList entries={entries} basePath="/notes/" lang="zh" />
+</BaseLayout>
