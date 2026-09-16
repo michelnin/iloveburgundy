@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { AUTHOR } from '../../../consts';
 import { faqPageSchema } from '../../../utils/schema';
 
 const faqs = [
@@ -48,14 +49,14 @@ const schema = faqPageSchema(faqs);
       from sustained first-hand fieldwork. That gap is the reason this work exists.
     </p>
     <p>
-      Trained at ESC Dijon (Master's in Wine &amp; Spirits Management), I have worked on a single
+      Trained at ESC Dijon (Master's in Wine &amp; Spirits Management, 2012), I have worked on a single
       region ever since. 《勃艮第特级园》 covers all 33 Burgundy Grands Crus (Climat / climat) and was
       written from annual visits and repeated tastings across more than a decade — not compiled from
       existing sources.
     </p>
     <p>
-      The Chinese edition of <em>Inside Burgundy</em>, co-founded with Jasper Morris MW, adapts his
-      framework for readers in China rather than simply translating it.
+      The Chinese edition of <em>Inside Burgundy</em>, co-founded with Jasper Morris MW in 2019,
+      adapts his framework for readers in China rather than simply translating it.
     </p>
 
     <h2>What I do</h2>
@@ -90,7 +91,7 @@ const schema = faqPageSchema(faqs);
     <h2>Get in touch</h2>
     <p>
       Enquiries about trips and courses:
-      <strong><a href="mailto:ningbo@insideburgundy.cn">ningbo@insideburgundy.cn</a></strong>
+      <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>
     </p>
     <ul>
       <li><a href="/notes">Articles</a> (in Chinese)</li>
@@ -111,13 +112,7 @@ const schema = faqPageSchema(faqs);
     </dl>
 
     <hr />
-    <p>
-      Ningbo Mei is a Burgundy wine expert and author based in Shanghai. He holds a Master's in Wine
-      &amp; Spirits Management from ESC Dijon and is the author of 《勃艮第特级园》 (Edition EIPL), a
-      Chinese-language study of the 33 Burgundy Grands Crus. He co-founded the Chinese edition of
-      Inside Burgundy with Jasper Morris MW, where he serves as Editor-in-Chief. He has travelled to
-      Burgundy every year since 2011 and has visited more than 500 domaines.
-    </p>
+    <p>{AUTHOR.bioEn}</p>
     <p><em>Updated September 2026</em></p>
   </article>
 </BaseLayout>

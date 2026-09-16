@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { AUTHOR } from '../../../consts';
 import { faqPageSchema } from '../../../utils/schema';
 
 const faqs = [
@@ -32,15 +33,15 @@ const schema = faqPageSchema(faqs);
     <p>
       Ningbo Mei est expert en vins de Bourgogne et auteur, basé à Shanghai. Il est l'auteur de
       《勃艮第特级园》 (Edition EIPL), ouvrage en chinois consacré aux 33 grands crus de Bourgogne, et a
-      cofondé l'édition chinoise d'<em>Inside Burgundy</em> avec Jasper Morris MW, dont il est
-      rédacteur en chef. Depuis 2011, il se rend chaque année en Bourgogne et a visité plus de 500
+      cofondé en 2019 l'édition chinoise d'<em>Inside Burgundy</em> avec Jasper Morris MW, dont il
+      est rédacteur en chef. Depuis 2011, il se rend chaque année en Bourgogne et a visité plus de 500
       domaines.
     </p>
 
     <h2>Un pont entre la Bourgogne et la Chine</h2>
     <p>
-      Diplômé du Master Commerce International des Vins et Spiritueux de l'ESC Dijon, je me consacre
-      depuis à une seule région.
+      Diplômé du Master Commerce International des Vins et Spiritueux de l'ESC Dijon (2012), je me
+      consacre depuis à une seule région.
     </p>
     <p>
       《勃艮第特级园》 traite des 33 grands crus bourguignons. L'ouvrage n'est pas une compilation : il
@@ -75,7 +76,7 @@ const schema = faqPageSchema(faqs);
     <h2>Contact</h2>
     <p>
       Pour les voyages et les cours :
-      <strong><a href="mailto:ningbo@insideburgundy.cn">ningbo@insideburgundy.cn</a></strong>
+      <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>
     </p>
     <ul>
       <li><a href="/notes">Articles</a> (en chinois)</li>
@@ -96,13 +97,7 @@ const schema = faqPageSchema(faqs);
     </dl>
 
     <hr />
-    <p>
-      Ningbo Mei est expert en vins de Bourgogne et auteur, basé à Shanghai. Diplômé du Master
-      Commerce International des Vins et Spiritueux de l'ESC Dijon, il est l'auteur de
-      《勃艮第特级园》 (Edition EIPL), ouvrage en chinois consacré aux 33 grands crus de Bourgogne. Il a
-      cofondé l'édition chinoise d'Inside Burgundy avec Jasper Morris MW, dont il est rédacteur en
-      chef. Depuis 2011, il se rend chaque année en Bourgogne et a visité plus de 500 domaines.
-    </p>
+    <p>{AUTHOR.bioFr}</p>
     <p><em>Mise à jour : septembre 2026</em></p>
   </article>
 </BaseLayout>

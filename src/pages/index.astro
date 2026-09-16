@@ -1,9 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleList from '../components/ArticleList.astro';
 import { useTranslations, localizePath } from '../i18n/ui';
-import { SITE } from '../consts';
+import { SITE, AUTHOR } from '../consts';
+import portrait from '../assets/images/ningbo-mei.jpg';
+import tripPhoto from '../assets/images/trip-1.jpg';
+import tastingPhoto from '../assets/images/tasting-1.jpg';
 
 const t = useTranslations('zh');
 const notes = (await getCollection('notes', ({ data }) => !data.draft && data.lang === 'zh'))
@@ -11,16 +15,26 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft && data.la
   .slice(0, 6);
 
 const entries = [
-  { key: 'nav.trips' as const, path: '/trips/' },
-  { key: 'nav.courses' as const, path: '/courses/' },
-  { key: 'nav.join' as const, path: '/join/' },
+  { key: 'nav.trips' as const, path: '/trips/', image: tripPhoto, alt: '梅宁博带队勃艮第深度考察现场' },
+  { key: 'nav.courses' as const, path: '/courses/', image: tastingPhoto, alt: '勃艮第高阶品鉴课程现场' },
+  { key: 'nav.join' as const, path: '/join/', image: undefined, alt: '' },
 ];
 ---
 
 <BaseLayout title={SITE.title} description={SITE.description} lang="zh" path="/">
-  <section>
-    <h1>{SITE.title} · {SITE.titleEn}</h1>
-    <p>{t('home.hero')}</p>
+  <section class="hero">
+    <Image
+      src={portrait}
+      alt={`${AUTHOR.name}（${AUTHOR.nameEn}），${AUTHOR.jobTitle}`}
+      widths={[240, 480]}
+      sizes="(max-width: 640px) 160px, 240px"
+      loading="eager"
+      class="hero-portrait"
+    />
+    <div class="hero-text">
+      <h1>{SITE.title} · {SITE.titleEn}</h1>
+      <p>{t('home.hero')}</p>
+    </div>
   </section>
 
   <section>
@@ -35,10 +49,28 @@ const entries = [
       {
         entries.map((item) => (
           <li>
-            <a href={localizePath(item.path, 'zh')}>{t(item.key)}</a>
+            <a href={localizePath(item.path, 'zh')}>
+              {item.image && (
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  widths={[400, 800]}
+                  sizes="(max-width: 640px) 100vw, 320px"
+                  loading="lazy"
+                  class="entry-image"
+                />
+              )}
+              <span class="entry-label">{t(item.key)}</span>
+            </a>
           </li>
         ))
       }
     </ul>
+  </section>
+
+  <section>
+    <h2>{t('home.contact')}</h2>
+    <p>课程与旅行咨询：<a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a></p>
+    <p>微信：{AUTHOR.wechat}（请注明来意）</p>
   </section>
 </BaseLayout>

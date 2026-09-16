@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { SITE } from '../consts';
 import { personSchema } from '../utils/schema';
+import portrait from '../assets/images/ningbo-mei.jpg';
 import type { Locale } from '../consts';
 
 interface Props {
@@ -32,7 +33,7 @@ const ogImage = image ? new URL(image, SITE.url).toString() : new URL('/og-defau
 const ogLocale = lang === 'zh' ? 'zh_CN' : lang === 'fr' ? 'fr_FR' : 'en_US';
 const pageTitle = path === '/' || path === '' ? `${title}` : `${title} | ${SITE.title}`;
 
-const jsonLdBlocks = [personSchema(), ...extraJsonLd];
+const jsonLdBlocks = [personSchema(portrait.src), ...extraJsonLd];
 ---
 
 <!doctype html>

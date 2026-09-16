@@ -203,10 +203,34 @@ article.prose blockquote {
   color: var(--color-muted);
 }
 
+/* 首页头图：方形个人照 + 标题 */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-portrait {
+  width: 160px;
+  height: 160px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hero-text {
+  flex: 1 1 18rem;
+}
+
+.hero-text h1 {
+  margin-top: 0;
+}
+
 .entry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
   list-style: none;
   padding: 0;
 }
@@ -215,10 +239,22 @@ article.prose blockquote {
   display: block;
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  padding: 0.9rem 1rem;
+  overflow: hidden;
   text-decoration: none;
   color: var(--color-text);
   text-align: center;
+}
+
+.entry-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.entry-label {
+  display: block;
+  padding: 0.9rem 1rem;
 }
 
 .entry-grid a:hover {

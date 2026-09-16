@@ -1,7 +1,7 @@
 import { AUTHOR, SITE } from '../consts';
 import type { Locale } from '../consts';
 
-export function personSchema() {
+export function personSchema(image?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -10,6 +10,8 @@ export function personSchema() {
     url: AUTHOR.url,
     jobTitle: AUTHOR.jobTitle,
     description: AUTHOR.bio,
+    email: AUTHOR.email,
+    ...(image ? { image: new URL(image, SITE.url).href } : {}),
     ...(AUTHOR.sameAs.length > 0 ? { sameAs: AUTHOR.sameAs } : {}),
   };
 }
