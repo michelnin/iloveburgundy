@@ -27,6 +27,7 @@ export const ui = {
     'glossary.title': '勃艮第术语库',
     'glossary.description': '勃艮第葡萄酒常用术语的中文解释，逐条独立收录。',
     'home.contact': '联系',
+    'home.chineseNotice': '',
     'footer.rights': '版权所有',
   },
   en: {
@@ -48,6 +49,8 @@ export const ui = {
     'article.backToList': 'Back to list',
     'glossary.title': 'Burgundy Glossary',
     'glossary.description': 'Burgundy wine terminology, one entry per URL.',
+    'home.contact': 'Get in touch',
+    'home.chineseNotice': 'Most articles on this site are written in Chinese.',
     'footer.rights': 'All rights reserved',
   },
   fr: {
@@ -69,11 +72,22 @@ export const ui = {
     'article.backToList': 'Retour à la liste',
     'glossary.title': 'Glossaire de Bourgogne',
     'glossary.description': 'Terminologie du vin de Bourgogne, une entrée par URL.',
+    'home.contact': 'Contact',
+    'home.chineseNotice': 'La plupart des articles de ce site sont rédigés en chinois.',
     'footer.rights': 'Tous droits réservés',
   },
 } as const;
 
 export type UiKey = keyof (typeof ui)[typeof DEFAULT_LOCALE];
+
+/**
+ * 链接指向无前缀的中文路由时，附在链接文字后的标注。
+ * 中文版自身不需要，故返回 undefined。
+ */
+export const CHINESE_ONLY_NOTE: Partial<Record<Locale, string>> = {
+  en: '(CN)',
+  fr: '(CN)',
+};
 
 export function useTranslations(lang: Locale) {
   return function t(key: UiKey): string {

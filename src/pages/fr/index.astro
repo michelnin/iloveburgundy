@@ -1,18 +1,80 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { useTranslations, localizePath } from '../../i18n/ui';
-import { SITE } from '../../consts';
+import { useTranslations, localizePath, CHINESE_ONLY_NOTE } from '../../i18n/ui';
+import { SITE, AUTHOR } from '../../consts';
+import portrait from '../../assets/images/ningbo-mei.jpg';
+import tripPhoto from '../../assets/images/trip-1.jpg';
+import tastingPhoto from '../../assets/images/tasting-1.jpg';
 
 const t = useTranslations('fr');
+const note = CHINESE_ONLY_NOTE.fr;
+
+// 英法版暂无对应栏目页，卡片一律指向无前缀的中文路由并标注（与导航同一规则）
+const entries = [
+  { label: 'Voyages', path: '/trips/', image: tripPhoto, alt: "Un voyage d'étude en Bourgogne mené par Ningbo Mei" },
+  { label: 'Cours', path: '/courses/', image: tastingPhoto, alt: 'Un cours de dégustation avancée à Shanghai' },
+  { label: 'Articles', path: '/notes/', image: undefined, alt: '' },
+];
 ---
 
 <BaseLayout title={SITE.titleEn} description={SITE.descriptionFr} lang="fr" path="/fr/">
+  <section class="hero">
+    <Image
+      src={portrait}
+      alt={`${AUTHOR.nameEn}, ${AUTHOR.jobTitleFr}`}
+      widths={[240, 480]}
+      sizes="(max-width: 640px) 160px, 240px"
+      loading="eager"
+      class="hero-portrait"
+    />
+    <div class="hero-text">
+      <h1>{SITE.title} · {SITE.titleEn}</h1>
+      <p>{t('home.hero')}</p>
+    </div>
+  </section>
+
   <section>
-    <h1>{SITE.title} · {SITE.titleEn}</h1>
-    <p>{t('home.hero')}</p>
+    <p>{AUTHOR.bioFr}</p>
     <p>
-      La plupart des articles de ce site sont rédigés en chinois. Consultez la page
-      <a href={localizePath('/about/', 'fr')}>À propos</a> pour une présentation en français.
+      {t('home.chineseNotice')}{' '}
+      <a href={localizePath('/about/', 'fr')}>Lire la présentation complète en français &rarr;</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>{t('home.entries')}</h2>
+    <ul class="entry-grid">
+      {
+        entries.map((item) => (
+          <li>
+            <a href={item.path}>
+              {item.image && (
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  widths={[400, 800]}
+                  sizes="(max-width: 640px) 100vw, 320px"
+                  loading="lazy"
+                  class="entry-image"
+                />
+              )}
+              <span class="entry-label">
+                {item.label}
+                {note && <span class="nav-note">{note}</span>}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('home.contact')}</h2>
+    <p>
+      Pour les voyages et les cours&nbsp;:{' '}
+      <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>
     </p>
   </section>
 </BaseLayout>

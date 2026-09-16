@@ -1,6 +1,6 @@
 ---
 import { SITE, LOCALES, type Locale } from '../consts';
-import { useTranslations, localizePath, languageNames } from '../i18n/ui';
+import { useTranslations, localizePath, languageNames, CHINESE_ONLY_NOTE } from '../i18n/ui';
 
 interface Props {
   lang: Locale;
@@ -36,12 +36,6 @@ const NAV_ITEMS: readonly NavItem[] = [
   { key: 'nav.courses', path: '/courses/', localizedIn: ['zh'] },
   { key: 'nav.join', path: '/join/', localizedIn: ['zh'], note: false },
 ];
-
-/** 指向中文路由时附在链接文字后的标注；中文版自身不需要 */
-const CHINESE_ONLY_NOTE: Partial<Record<Locale, string>> = {
-  en: '(CN)',
-  fr: '(CN)',
-};
 
 const navItems = NAV_ITEMS.map((item) => {
   const localized = item.localizedIn.includes(lang);
