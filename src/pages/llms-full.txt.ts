@@ -43,6 +43,8 @@ export const GET: APIRoute = async () => {
     '',
     `作者：${AUTHOR.name}（${AUTHOR.nameEn}）— ${AUTHOR.url}`,
     '',
+    AUTHOR.bio,
+    '',
     '# 文章 Notes',
     '',
     ...notes.map((e) => renderEntry(e, '/notes/')),

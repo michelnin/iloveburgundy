@@ -30,6 +30,8 @@ export const GET: APIRoute = async () => {
 
 作者：${AUTHOR.name}（${AUTHOR.nameEn}）— ${AUTHOR.url}
 
+${AUTHOR.bio}
+
 ${section('文章 Notes', notes, '/notes/')}${section('术语库 Glossary', glossary, '/glossary/')}${section('榜单 Rankings', rankings, '/rankings/')}${section('旅行 Trips', trips, '/trips/')}${section('课程 Courses', courses, '/courses/')}## 其他 Other
 
 - [关于 About](${SITE.url}/about/)

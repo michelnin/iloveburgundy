@@ -12,14 +12,14 @@ export const SITE = {
 export const AUTHOR = {
   name: '梅宁博',
   nameEn: 'Ningbo Mei',
-  jobTitle: '勃艮第葡萄酒作者',
-  jobTitleEn: 'Burgundy Wine Writer',
-  jobTitleFr: 'Auteur spécialisé en vins de Bourgogne',
-  bio: '梅宁博长期研究勃艮第葡萄酒，专注产区风土、酒庄评述与中文读者的入门与进阶教育。',
+  jobTitle: '勃艮第葡萄酒专家',
+  jobTitleEn: 'Burgundy Wine Expert, Author, Editor-in-Chief',
+  jobTitleFr: 'Expert en vins de Bourgogne',
+  bio: '梅宁博，勃艮第葡萄酒专家、《勃艮第特级园》作者、《我爱勃艮第》系列视频作者。与 Jasper Morris MW 联合创办 Inside Burgundy 中文版并任主编。自 2011 年起每年赴勃艮第实地考察，累计走访酒庄逾 500 家，为中国藏家主持勃艮第深度考察与高阶品鉴课程。',
   bioEn:
-    'Ningbo Mei writes about Burgundy wine, focusing on terroir, producer reviews, and education for Chinese-speaking readers.',
+    "Ningbo Mei is a Burgundy wine expert and author based in Shanghai. He holds a Master's in Wine & Spirits Management from ESC Dijon and is the author of 《勃艮第特级园》 (Edition EIPL), a Chinese-language study of the 33 Burgundy Grands Crus. He co-founded the Chinese edition of Inside Burgundy with Jasper Morris MW, where he serves as Editor-in-Chief. He has travelled to Burgundy every year since 2011 and has visited more than 500 domaines.",
   bioFr:
-    "Ningbo Mei écrit sur les vins de Bourgogne, en se concentrant sur le terroir, les domaines et l'éducation des lecteurs sinophones.",
+    "Ningbo Mei est expert en vins de Bourgogne et auteur, basé à Shanghai. Diplômé du Master Commerce International des Vins et Spiritueux de l'ESC Dijon, il est l'auteur de 《勃艮第特级园》 (Edition EIPL), ouvrage en chinois consacré aux 33 grands crus de Bourgogne. Il a cofondé l'édition chinoise d'Inside Burgundy avec Jasper Morris MW, dont il est rédacteur en chef. Depuis 2011, il se rend chaque année en Bourgogne et a visité plus de 500 domaines.",
   url: 'https://ningbomei.com/about',
   // 可在此补充社交主页链接，会自动写入 Person 的 sameAs 字段
   sameAs: [] as string[],
