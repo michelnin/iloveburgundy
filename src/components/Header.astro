@@ -8,16 +8,49 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const navItems: Array<{ key: Parameters<typeof t>[0]; path: string }> = [
-  { key: 'nav.home', path: '/' },
-  { key: 'nav.notes', path: '/notes/' },
-  { key: 'nav.glossary', path: '/glossary/' },
-  { key: 'nav.rankings', path: '/rankings/' },
-  { key: 'nav.trips', path: '/trips/' },
-  { key: 'nav.courses', path: '/courses/' },
-  { key: 'nav.join', path: '/join/' },
-  { key: 'nav.about', path: '/about/' },
+/**
+ * 导航配置。
+ *
+ * `localizedIn` = 已经有该语言版本页面的语言列表，导航才会加语言前缀。
+ * 不在列表里的语言一律指向无前缀的中文路由，并在链接文字后加语言标注，
+ * 避免产生 /en/notes/ 这类还不存在的死链。
+ *
+ * 将来某个栏目上线了英文版（例如 /en/notes/），只要把 'en' 加进那一项的
+ * `localizedIn` 即可，导航会自动改为指向 /en/notes/ 并去掉标注。
+ */
+type NavItem = {
+  key: Parameters<typeof t>[0];
+  path: string;
+  localizedIn: readonly Locale[];
+  /** 语言中立的页面（如二维码页）指向中文路由也无需标注 */
+  note?: boolean;
+};
+
+const NAV_ITEMS: readonly NavItem[] = [
+  { key: 'nav.home', path: '/', localizedIn: ['zh', 'en', 'fr'] },
+  { key: 'nav.about', path: '/about/', localizedIn: ['zh', 'en', 'fr'] },
+  { key: 'nav.notes', path: '/notes/', localizedIn: ['zh'] },
+  { key: 'nav.glossary', path: '/glossary/', localizedIn: ['zh'] },
+  { key: 'nav.rankings', path: '/rankings/', localizedIn: ['zh'] },
+  { key: 'nav.trips', path: '/trips/', localizedIn: ['zh'] },
+  { key: 'nav.courses', path: '/courses/', localizedIn: ['zh'] },
+  { key: 'nav.join', path: '/join/', localizedIn: ['zh'], note: false },
 ];
+
+/** 指向中文路由时附在链接文字后的标注；中文版自身不需要 */
+const CHINESE_ONLY_NOTE: Partial<Record<Locale, string>> = {
+  en: '(CN)',
+  fr: '(CN)',
+};
+
+const navItems = NAV_ITEMS.map((item) => {
+  const localized = item.localizedIn.includes(lang);
+  return {
+    label: t(item.key),
+    href: localized ? localizePath(item.path, lang) : item.path,
+    note: localized || item.note === false ? undefined : CHINESE_ONLY_NOTE[lang],
+  };
+});
 ---
 
 <header class="site-header">
@@ -28,7 +61,8 @@ const navItems: Array<{ key: Parameters<typeof t>[0]; path: string }> = [
         {
           navItems.map((item) => (
             <li>
-              <a href={localizePath(item.path, lang)}>{t(item.key)}</a>
+              <a href={item.href}>{item.label}</a>
+              {item.note && <span class="nav-note">{item.note}</span>}
             </li>
           ))
         }

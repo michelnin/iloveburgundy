@@ -79,6 +79,13 @@ nav.site-nav a:hover {
   color: var(--color-accent);
 }
 
+/* 指向中文路由的导航项标注，例如 “Articles (CN)” */
+nav.site-nav .nav-note {
+  margin-left: 0.25em;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
 .lang-switch {
   display: flex;
   gap: 0.5rem;
