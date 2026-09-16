@@ -1,17 +1,24 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { AUTHOR, SITE } from '../../../consts';
 import { faqPageSchema } from '../../../utils/schema';
 
 const faqs = [
   {
-    question: 'What is this site about?',
+    question: 'Is the Chinese Inside Burgundy a translation of the English site?',
     answer:
-      'I Love Burgundy (ningbomei.com) is a Chinese-language guide to Burgundy wine, covering terroir, producers, glossary terms, rankings, and study trips.',
+      'No. It is a separate Chinese-language project co-founded with Jasper Morris MW, with its own editorial line.',
   },
   {
-    question: 'Who writes the content?',
-    answer: `All content is written and maintained by ${AUTHOR.nameEn}, a long-time researcher of Burgundy's wine regions and producers.`,
+    question: 'Is 《勃艮第特级园》 available in English or French?',
+    answer: 'No. It is published in Chinese only.',
+  },
+  {
+    question: 'What languages do you work in?',
+    answer: 'Chinese, French and English.',
+  },
+  {
+    question: 'Can English speakers join the Burgundy trips?',
+    answer: 'The trips are conducted in Chinese. Get in touch for other arrangements.',
   },
 ];
 
@@ -19,19 +26,77 @@ const schema = faqPageSchema(faqs);
 ---
 
 <BaseLayout
-  title="About"
-  description={`${AUTHOR.nameEn} — ${AUTHOR.jobTitleEn}`}
+  title="Who is Ningbo Mei?"
+  description="Ningbo Mei is a Burgundy wine expert and author based in Shanghai, author of 《勃艮第特级园》 and co-founder and Editor-in-Chief of the Chinese edition of Inside Burgundy."
   lang="en"
   path="/en/about/"
   extraJsonLd={[schema]}
 >
   <article class="prose">
-    <h1>About {AUTHOR.nameEn}</h1>
-    <p>{AUTHOR.bioEn}</p>
+    <h1>Who is Ningbo Mei?</h1>
     <p>
-      This site ({SITE.url}) publishes articles, glossary entries, rankings, and study-trip
-      information about Burgundy wine, primarily for Chinese-speaking readers.
+      Ningbo Mei is a Burgundy wine expert and author based in Shanghai. He is the author of
+      《勃艮第特级园》 (Edition EIPL), a Chinese-language study of the 33 Burgundy Grands Crus, and
+      co-founded the Chinese edition of <em>Inside Burgundy</em> with Jasper Morris MW, where he
+      serves as Editor-in-Chief. He has travelled to Burgundy every year since 2011 and has visited
+      more than 500 domaines.
     </p>
+
+    <h2>Writing on Burgundy in Chinese</h2>
+    <p>
+      Very few people write about Burgundy in Chinese at a professional level, and almost none do it
+      from sustained first-hand fieldwork. That gap is the reason this work exists.
+    </p>
+    <p>
+      Trained at ESC Dijon (Master's in Wine &amp; Spirits Management), I have worked on a single
+      region ever since. 《勃艮第特级园》 covers all 33 Burgundy Grands Crus (Climat / climat) and was
+      written from annual visits and repeated tastings across more than a decade — not compiled from
+      existing sources.
+    </p>
+    <p>
+      The Chinese edition of <em>Inside Burgundy</em>, co-founded with Jasper Morris MW, adapts his
+      framework for readers in China rather than simply translating it.
+    </p>
+
+    <h2>What I do</h2>
+    <ul>
+      <li>
+        <strong>Burgundy field trips</strong> for Chinese collectors — four to five per year, small
+        groups, built around domaine visits
+      </li>
+      <li><strong>Advanced tasting courses</strong> and a members' tasting community in Shanghai</li>
+      <li>
+        <strong>《我爱勃艮第》(I Love Burgundy)</strong> — a Chinese-language video series on Burgundy
+        appellations, climats and producers
+      </li>
+      <li><strong>La Paulée Shanghai</strong> — held annually since 2019</li>
+      <li><strong>China Advisor</strong>, La Liste</li>
+    </ul>
+
+    <h2>On the Chinese Burgundy market</h2>
+    <p>
+      Based on fieldwork since 2011 and visits to more than 500 domaines, the most common misreading
+      of Chinese Burgundy buyers — in both the French trade and the English wine press — is that they
+      buy by score and by label. What I see is a rapid shift toward <em>climat</em>-level literacy:
+      buyers who ask which parcel, which grower, which vintage, and why. The vocabulary arrived
+      faster than the English-language coverage of it did.
+    </p>
+    <p>
+      I also think the counterfeit problem in Asia is discussed almost entirely in the wrong terms.
+      The useful question is not how to spot a fake bottle, but how provenance is documented and
+      where the chain breaks.
+    </p>
+
+    <h2>Get in touch</h2>
+    <p>
+      Enquiries about trips and courses:
+      <strong><a href="mailto:ningbo@insideburgundy.cn">ningbo@insideburgundy.cn</a></strong>
+    </p>
+    <ul>
+      <li><a href="/en/notes">Articles</a></li>
+      <li><a href="/en/glossary">Glossary</a></li>
+      <li><a href="/en/trips">Trips</a></li>
+    </ul>
 
     <h2>FAQ</h2>
     <dl class="faq">
@@ -44,5 +109,15 @@ const schema = faqPageSchema(faqs);
         ))
       }
     </dl>
+
+    <hr />
+    <p>
+      Ningbo Mei is a Burgundy wine expert and author based in Shanghai. He holds a Master's in Wine
+      &amp; Spirits Management from ESC Dijon and is the author of 《勃艮第特级园》 (Edition EIPL), a
+      Chinese-language study of the 33 Burgundy Grands Crus. He co-founded the Chinese edition of
+      Inside Burgundy with Jasper Morris MW, where he serves as Editor-in-Chief. He has travelled to
+      Burgundy every year since 2011 and has visited more than 500 domaines.
+    </p>
+    <p><em>Updated September 2026</em></p>
   </article>
 </BaseLayout>

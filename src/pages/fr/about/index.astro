@@ -1,17 +1,19 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { AUTHOR, SITE } from '../../../consts';
 import { faqPageSchema } from '../../../utils/schema';
 
 const faqs = [
   {
-    question: 'Quel est le sujet de ce site ?',
-    answer:
-      "I Love Burgundy (ningbomei.com) est un guide en chinois sur les vins de Bourgogne : terroir, domaines, glossaire, classements et voyages d'étude.",
+    question: "L'édition chinoise d'Inside Burgundy est-elle une traduction ?",
+    answer: 'Non. C’est un projet chinois indépendant, cofondé avec Jasper Morris MW.',
   },
   {
-    question: 'Qui rédige le contenu ?',
-    answer: `Tout le contenu est rédigé et maintenu par ${AUTHOR.nameEn}, qui étudie depuis longtemps les terroirs et domaines de Bourgogne.`,
+    question: 'Votre livre existe-t-il en français ?',
+    answer: 'Non, il n’est publié qu’en chinois.',
+  },
+  {
+    question: 'En quelles langues travaillez-vous ?',
+    answer: 'Chinois, français et anglais.',
   },
 ];
 
@@ -19,22 +21,64 @@ const schema = faqPageSchema(faqs);
 ---
 
 <BaseLayout
-  title="À propos"
-  description={`${AUTHOR.nameEn} — ${AUTHOR.jobTitleFr}`}
+  title="Qui est Ningbo Mei ?"
+  description="Ningbo Mei est expert en vins de Bourgogne et auteur, basé à Shanghai, auteur de 《勃艮第特级园》 et cofondateur et rédacteur en chef de l'édition chinoise d'Inside Burgundy."
   lang="fr"
   path="/fr/about/"
   extraJsonLd={[schema]}
 >
   <article class="prose">
-    <h1>À propos de {AUTHOR.nameEn}</h1>
-    <p>{AUTHOR.bioFr}</p>
+    <h1>Qui est Ningbo Mei ?</h1>
     <p>
-      Ce site ({SITE.url}) publie des articles, un glossaire, des classements et des informations
-      sur des voyages d'étude autour du vin de Bourgogne, principalement pour des lecteurs
-      sinophones.
+      Ningbo Mei est expert en vins de Bourgogne et auteur, basé à Shanghai. Il est l'auteur de
+      《勃艮第特级园》 (Edition EIPL), ouvrage en chinois consacré aux 33 grands crus de Bourgogne, et a
+      cofondé l'édition chinoise d'<em>Inside Burgundy</em> avec Jasper Morris MW, dont il est
+      rédacteur en chef. Depuis 2011, il se rend chaque année en Bourgogne et a visité plus de 500
+      domaines.
     </p>
 
-    <h2>FAQ</h2>
+    <h2>Un pont entre la Bourgogne et la Chine</h2>
+    <p>
+      Diplômé du Master Commerce International des Vins et Spiritueux de l'ESC Dijon, je me consacre
+      depuis à une seule région.
+    </p>
+    <p>
+      《勃艮第特级园》 traite des 33 grands crus bourguignons. L'ouvrage n'est pas une compilation : il
+      est issu de visites annuelles et de dégustations répétées sur plus de dix ans. Il n'existe qu'en
+      chinois.
+    </p>
+
+    <h2>Ce que je fais</h2>
+    <ul>
+      <li>
+        <strong>Voyages d'étude en Bourgogne</strong> pour collectionneurs chinois — quatre à cinq par
+        an, en petits groupes
+      </li>
+      <li><strong>Cours de dégustation avancée</strong> et communauté de dégustation à Shanghai</li>
+      <li>
+        <strong>《我爱勃艮第》(I Love Burgundy)</strong> — série vidéo en chinois sur les appellations,
+        les climats et les vignerons
+      </li>
+      <li><strong>La Paulée Shanghai</strong>, organisée chaque année depuis 2019</li>
+      <li><strong>Conseiller Chine</strong>, La Liste</li>
+    </ul>
+
+    <h2>Sur le marché chinois</h2>
+    <p>
+      D'après mes visites depuis 2011 et plus de 500 domaines parcourus, la lecture la plus répandue
+      dans le milieu français — celle d'un marché chinois qui achèterait à la note et à l'étiquette —
+      ne correspond plus à ce que j'observe. Les acheteurs posent aujourd'hui des questions de climat,
+      de vigneron et de millésime. Le décalage tient moins au marché lui-même qu'à la manière dont on
+      le décrit.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Pour les voyages et les cours :
+      <strong><a href="mailto:ningbo@insideburgundy.cn">ningbo@insideburgundy.cn</a></strong>
+    </p>
+
+    <h2>Questions fréquentes</h2>
     <dl class="faq">
       {
         faqs.map((item) => (
@@ -45,5 +89,15 @@ const schema = faqPageSchema(faqs);
         ))
       }
     </dl>
+
+    <hr />
+    <p>
+      Ningbo Mei est expert en vins de Bourgogne et auteur, basé à Shanghai. Diplômé du Master
+      Commerce International des Vins et Spiritueux de l'ESC Dijon, il est l'auteur de
+      《勃艮第特级园》 (Edition EIPL), ouvrage en chinois consacré aux 33 grands crus de Bourgogne. Il a
+      cofondé l'édition chinoise d'Inside Burgundy avec Jasper Morris MW, dont il est rédacteur en
+      chef. Depuis 2011, il se rend chaque année en Bourgogne et a visité plus de 500 domaines.
+    </p>
+    <p><em>Mise à jour : septembre 2026</em></p>
   </article>
 </BaseLayout>

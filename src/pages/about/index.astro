@@ -1,17 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { AUTHOR, SITE } from '../../consts';
+import { AUTHOR } from '../../consts';
 import { faqPageSchema } from '../../utils/schema';
 
 const faqs = [
   {
-    question: '这个网站是做什么的？',
-    answer:
-      '爱勃艮第（ningbomei.com）是一个面向中文读者的勃艮第葡萄酒指南，内容涵盖产区风土、酒庄评述、术语解释、榜单观点与实地游学信息。',
+    question: 'Inside Burgundy 中文版和英文版是什么关系？',
+    answer: '联合创办的独立中文项目，我任主编。不是英文版的翻译版。',
   },
   {
-    question: '内容是谁写的？',
-    answer: `全部内容由${AUTHOR.name}（${AUTHOR.nameEn}）撰写和维护，长期研究勃艮第葡萄酒产区与酒庄。`,
+    question: '旅行团一般多少人？',
+    answer: '6-8 位，以能进入酒庄接待条件为准。',
+  },
+  {
+    question: '没有基础可以参加课程吗？',
+    answer: '课程面向已有基础、想系统建立判断力的人。完全入门可以先从术语库和文章开始。',
   },
 ];
 
@@ -19,16 +22,63 @@ const schema = faqPageSchema(faqs);
 ---
 
 <BaseLayout
-  title="关于"
-  description={`${AUTHOR.name} — ${AUTHOR.jobTitle}`}
+  title="梅宁博是谁？"
+  description="梅宁博是常驻上海的勃艮第葡萄酒专家，《勃艮第特级园》作者、《我爱勃艮第》系列视频作者，与 Jasper Morris MW 联合创办 Inside Burgundy 中文版并任主编。"
   lang="zh"
   path="/about/"
   extraJsonLd={[schema]}
 >
   <article class="prose">
-    <h1>关于{AUTHOR.name}</h1>
-    <p>{AUTHOR.bio}</p>
-    <p>本站（{SITE.url}）持续发布勃艮第葡萄酒相关的文章、术语解释、榜单观点与游学课程信息，服务对象是希望系统了解勃艮第的中文读者。</p>
+    <h1>梅宁博是谁？</h1>
+    <p>
+      梅宁博是常驻上海的勃艮第葡萄酒专家，《勃艮第特级园》作者、《我爱勃艮第》系列视频作者，与
+      Jasper Morris MW 联合创办 Inside Burgundy 中文版并任主编。他自 2011
+      年起每年赴勃艮第实地考察，累计走访酒庄逾 500 家。
+    </p>
+
+    <h2>我做什么</h2>
+    <p>
+      <strong>研究与写作。</strong>十几年来只专注勃艮第一个产区。《勃艮第特级园》是我对勃艮第 33
+      个特级园（Grand Cru / grand cru）的系统梳理，基于实地走访和逐年品鉴写成。
+    </p>
+    <p>
+      <strong>Inside Burgundy 中文版。</strong>与 Jasper Morris MW
+      联合创办，担任主编。Jasper Morris MW 是全球公认最权威的勃艮第写作者之一。
+    </p>
+    <p>
+      <strong>《我爱勃艮第》系列视频。</strong>把地块、酒庄、年份这些原本只存在于专业文本里的东西，讲成能看懂的内容。
+    </p>
+    <p><strong>《寻酿勃艮第指南》公众号。</strong>勃艮第产区、酒庄、酒商的深度透视。</p>
+    <p>
+      <strong>勃艮第深度考察。</strong>每年 4–5
+      次，小规模，面向中国藏家。行程以酒庄拜访为主线，大部分是不对外开放、只接受引荐的酒庄。
+    </p>
+    <p><strong>高阶品鉴课程与社群。</strong>面向资深爱好者和收藏家、以及想系统建立判断力的人。</p>
+    <p><strong>La Paulée Shanghai。</strong>自 2019 年起每年举办，把勃艮第本地最古老的丰收庆典搬到上海。</p>
+    <p><strong>La Liste 中国顾问。</strong></p>
+
+    <h2>为什么是勃艮第，而且只有勃艮第</h2>
+    <p>
+      因为勃艮第是全世界唯一把“地块”（Climat /
+      climat）推到极致的产区。同一个村、同一个品种、同一个年份，相隔几十米的两块地能酿出完全不同的酒。这种差异是可以实地走访、被反复验证的。
+    </p>
+    <p>
+      根据我 2011
+      年以来的实地走访，我认为中文世界对勃艮第最大的误解是把评分和价格当成了理解它的入口。真正的入口是地块与酿造者，同一块地在不同人手里是两瓶酒，这件事在勃艮第比任何产区都正确。
+    </p>
+    <p>
+      走访了 500
+      多家酒庄之后，我更确定的一点是：勃艮第的门槛在于能不能建立自己的判断坐标。这也是我做课程和旅行的原因。
+    </p>
+
+    <h2>我能提供什么</h2>
+    <ul>
+      <li><a href="/trips"><strong>勃艮第深度考察</strong></a> — 每年 4–5 次，小规模，酒庄拜访为主线</li>
+      <li><a href="/courses"><strong>品鉴课程</strong></a> — 系统性建立勃艮第判断力</li>
+      <li><a href="/notes"><strong>文章与榜单</strong></a> — 产区、酒庄、年份、购买</li>
+      <li><a href="/glossary"><strong>术语库</strong></a> — 勃艮第核心概念的中文解释</li>
+    </ul>
+    <p>咨询旅行与课程：<strong>微信：ningbovin</strong></p>
 
     <h2>常见问题</h2>
     <dl class="faq">
@@ -41,5 +91,14 @@ const schema = faqPageSchema(faqs);
         ))
       }
     </dl>
+
+    <hr />
+    <p>
+      {AUTHOR.name}，勃艮第葡萄酒专家、《勃艮第特级园》作者、《我爱勃艮第》系列视频作者。与 Jasper
+      Morris MW 联合创办 Inside Burgundy 中文版并任主编。自 2011
+      年起每年赴勃艮第实地考察，累计走访酒庄逾 500
+      家，为中国藏家主持勃艮第深度考察与高阶品鉴课程。
+    </p>
+    <p><em>更新于 2026 年 9 月</em></p>
   </article>
 </BaseLayout>
