@@ -51,14 +51,12 @@ export const PROFILES: Profile[] = [
   {
     key: 'xiaohongshu',
     label: { zh: '小红书', en: 'Xiaohongshu (RED)', fr: 'Xiaohongshu (RED)' },
-    // TODO 待填：https://www.xiaohongshu.com/user/profile/<你的用户 ID>
-    url: undefined,
+    url: 'https://www.xiaohongshu.com/user/profile/5eef7f510000000001003a59',
   },
   {
     key: 'wechat-channels',
     label: { zh: '视频号', en: 'WeChat Channels', fr: 'WeChat Channels' },
-    // TODO 待填：视频号名称
-    handle: undefined,
+    handle: '我爱勃艮第',
   },
   {
     key: 'wechat-official',

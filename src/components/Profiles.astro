@@ -6,25 +6,72 @@ interface Props {
 }
 const { lang } = Astro.props;
 
-// 只渲染已配置的条目：未填 url / handle 的平台整条略过，避免出现空链接
+// 图标为自绘的通用图形（非官方商标素材），配平台主色以便识别；
+// 若日后拿到官方 SVG，替换此处 path 即可，其余逻辑不变。
+const ICONS: Record<string, { color: string; path: string }> = {
+  xiaohongshu: {
+    color: '#FF2442',
+    path: 'M4 4h7v16H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm9 0h7a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-7V4Zm2.2 5.4h3.4M15.2 12h3.4M6 9.4h3M6 12h3',
+  },
+  'wechat-channels': {
+    color: '#07C160',
+    path: 'M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm5 3.8 5.2 3.2L10 15.2V8.8Z',
+  },
+  'wechat-official': {
+    color: '#07C160',
+    path: 'M9.2 3.6c3.9 0 7 2.5 7 5.6 0 3.1-3.1 5.6-7 5.6a9 9 0 0 1-2-.23L4 16l.9-2.5A5.4 5.4 0 0 1 2.2 9.2c0-3.1 3.1-5.6 7-5.6Zm6.6 6.3c3.3 0 5.9 2.1 5.9 4.7a4.6 4.6 0 0 1-2.2 3.7l.7 2.1-2.7-1.2c-.5.1-1.1.2-1.7.2-3.3 0-5.9-2.1-5.9-4.8 0-2.6 2.6-4.7 5.9-4.7Z',
+  },
+};
+
 const items = PROFILES.filter((p) => p.url || p.handle);
 ---
 
 {
   items.length > 0 && (
     <ul class="profiles">
-      {items.map((p) => (
-        <li>
-          <span class="profile-label">{p.label[lang]}</span>
-          {p.url ? (
-            <a href={p.url} rel="me noopener" target="_blank">
-              {p.handle ?? p.label[lang]}
-            </a>
-          ) : (
-            <span class="profile-handle">{p.handle}</span>
-          )}
-        </li>
-      ))}
+      {items.map((p) => {
+        const icon = ICONS[p.key];
+        // 有链接的显示平台名（点进去即可）；没有链接的补上账号名，
+        // 读者需要拿这个名字去微信里搜索
+        const name = p.label[lang];
+        const title = p.handle ? `${name}：${p.handle}` : name;
+        const inner = (
+          <>
+            {icon && (
+              <svg
+                class="profile-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke={icon.color}
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d={icon.path} />
+              </svg>
+            )}
+            <span class="profile-name">{name}</span>
+            {!p.url && p.handle && <span class="profile-handle">{p.handle}</span>}
+          </>
+        );
+        return (
+          <li>
+            {p.url ? (
+              <a href={p.url} rel="me noopener" target="_blank" title={title} aria-label={title}>
+                {inner}
+              </a>
+            ) : (
+              /* 微信生态没有可跳转的公开主页，渲染为不可点击的账号名 */
+              <span class="profile-static" title={title}>
+                {inner}
+              </span>
+            )}
+          </li>
+        );
+      })}
     </ul>
   )
 }
