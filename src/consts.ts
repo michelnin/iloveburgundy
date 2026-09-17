@@ -1,5 +1,5 @@
 export const SITE = {
-  title: '爱勃艮第',
+  title: '我爱勃艮第',
   titleEn: 'I Love Burgundy',
   description: '中文世界的勃艮第葡萄酒指南：产区风土、酒庄榜单、术语解析与实地游学。',
   descriptionEn:

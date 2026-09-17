@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { useTranslations, localizePath, CHINESE_ONLY_NOTE } from '../../i18n/ui';
+import { useTranslations, localizePath, CHINESE_ONLY_NOTE, siteName } from '../../i18n/ui';
 import { SITE, AUTHOR } from '../../consts';
 import portrait from '../../assets/images/ningbo-mei.jpg';
 import tripPhoto from '../../assets/images/trip-1.jpg';
@@ -29,7 +29,7 @@ const entries = [
       class="hero-portrait"
     />
     <div class="hero-text">
-      <h1>{SITE.title} · {SITE.titleEn}</h1>
+      <h1>{siteName('fr')}</h1>
       <p>{t('home.hero')}</p>
     </div>
   </section>

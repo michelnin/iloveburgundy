@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE, type Locale } from '../consts';
+import { DEFAULT_LOCALE, SITE, type Locale } from '../consts';
 
 export const languageNames: Record<Locale, string> = {
   zh: '中文',
@@ -93,6 +93,11 @@ export function useTranslations(lang: Locale) {
   return function t(key: UiKey): string {
     return ui[lang]?.[key] ?? ui[DEFAULT_LOCALE][key];
   };
+}
+
+/** 站名按语言取用：中文页用《我爱勃艮第》，英法页用 I Love Burgundy */
+export function siteName(lang: Locale): string {
+  return lang === 'zh' ? SITE.title : SITE.titleEn;
 }
 
 export function getLangFromUrl(url: URL): Locale {

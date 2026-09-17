@@ -1,6 +1,12 @@
 ---
-import { SITE, LOCALES, type Locale } from '../consts';
-import { useTranslations, localizePath, languageNames, CHINESE_ONLY_NOTE } from '../i18n/ui';
+import { LOCALES, type Locale } from '../consts';
+import {
+  useTranslations,
+  localizePath,
+  languageNames,
+  siteName,
+  CHINESE_ONLY_NOTE,
+} from '../i18n/ui';
 
 interface Props {
   lang: Locale;
@@ -49,7 +55,7 @@ const navItems = NAV_ITEMS.map((item) => {
 
 <header class="site-header">
   <div class="wrap">
-    <a class="site-title" href={localizePath('/', lang)}>{SITE.title} · {SITE.titleEn}</a>
+    <a class="site-title" href={localizePath('/', lang)}>{siteName(lang)}</a>
     <nav class="site-nav" aria-label="Main">
       <ul>
         {
