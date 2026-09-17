@@ -260,3 +260,20 @@ article.prose blockquote {
 .entry-grid a:hover {
   border-color: var(--color-accent);
 }
+
+/* 页脚 / 联系区的各平台账号 */
+.profiles {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.profiles .profile-label {
+  color: var(--color-muted, inherit);
+  opacity: 0.7;
+  margin-right: 0.4em;
+}

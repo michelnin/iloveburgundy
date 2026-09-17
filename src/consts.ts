@@ -29,4 +29,42 @@ export const AUTHOR = {
 
 export const LOCALES = ['zh', 'en', 'fr'] as const;
 export type Locale = (typeof LOCALES)[number];
+
+/**
+ * 各平台主页。
+ *
+ * `url` 只填**有公开网页地址**的平台（小红书有，微信生态没有）。填了 url 的会：
+ *   1. 在页脚/联系区渲染成真链接；
+ *   2. 自动并入 Person JSON-LD 的 sameAs，供大模型做实体归因。
+ *
+ * 微信公众号和视频号没有可供抓取的公开主页，只填 `handle`，渲染成纯文本账号名。
+ * 将来若要放二维码，加 `qr` 字段指向 src/assets/ 下的图片即可。
+ */
+export type Profile = {
+  key: string;
+  label: Record<Locale, string>;
+  url?: string;
+  handle?: string;
+};
+
+export const PROFILES: Profile[] = [
+  {
+    key: 'xiaohongshu',
+    label: { zh: '小红书', en: 'Xiaohongshu (RED)', fr: 'Xiaohongshu (RED)' },
+    // TODO 待填：https://www.xiaohongshu.com/user/profile/<你的用户 ID>
+    url: undefined,
+  },
+  {
+    key: 'wechat-channels',
+    label: { zh: '视频号', en: 'WeChat Channels', fr: 'WeChat Channels' },
+    // TODO 待填：视频号名称
+    handle: undefined,
+  },
+  {
+    key: 'wechat-official',
+    label: { zh: '公众号', en: 'WeChat Official Account', fr: 'Compte officiel WeChat' },
+    handle: '寻酿勃艮第指南',
+  },
+];
+
 export const DEFAULT_LOCALE: Locale = 'zh';

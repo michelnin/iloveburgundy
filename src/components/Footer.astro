@@ -1,6 +1,7 @@
 ---
 import { AUTHOR, type Locale } from '../consts';
 import { useTranslations } from '../i18n/ui';
+import Profiles from './Profiles.astro';
 
 interface Props {
   lang: Locale;
@@ -12,6 +13,7 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="wrap">
+    <Profiles lang={lang} />
     <p>&copy; {year} {AUTHOR.name} · {t('footer.rights')}</p>
   </div>
 </footer>

@@ -1,7 +1,9 @@
-import { AUTHOR, SITE } from '../consts';
+import { AUTHOR, PROFILES, SITE } from '../consts';
 import type { Locale } from '../consts';
 
 export function personSchema(image?: string) {
+  // 有公开网页地址的平台一并写入 sameAs，微信生态没有可抓取的主页，故不计入
+  const sameAs = [...AUTHOR.sameAs, ...PROFILES.flatMap((p) => (p.url ? [p.url] : []))];
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -12,7 +14,7 @@ export function personSchema(image?: string) {
     description: AUTHOR.bio,
     email: AUTHOR.email,
     ...(image ? { image: new URL(image, SITE.url).href } : {}),
-    ...(AUTHOR.sameAs.length > 0 ? { sameAs: AUTHOR.sameAs } : {}),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }
 

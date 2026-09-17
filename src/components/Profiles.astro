@@ -1,0 +1,30 @@
+---
+import { PROFILES, type Locale } from '../consts';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+
+// 只渲染已配置的条目：未填 url / handle 的平台整条略过，避免出现空链接
+const items = PROFILES.filter((p) => p.url || p.handle);
+---
+
+{
+  items.length > 0 && (
+    <ul class="profiles">
+      {items.map((p) => (
+        <li>
+          <span class="profile-label">{p.label[lang]}</span>
+          {p.url ? (
+            <a href={p.url} rel="me noopener" target="_blank">
+              {p.handle ?? p.label[lang]}
+            </a>
+          ) : (
+            <span class="profile-handle">{p.handle}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
