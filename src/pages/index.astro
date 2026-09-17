@@ -8,6 +8,7 @@ import { SITE, AUTHOR } from '../consts';
 import portrait from '../assets/images/ningbo-mei.jpg';
 import tripPhoto from '../assets/images/trip-1.jpg';
 import tastingPhoto from '../assets/images/tasting-1.jpg';
+import joinPhoto from '../assets/images/join-1.jpg';
 
 const t = useTranslations('zh');
 const notes = (await getCollection('notes', ({ data }) => !data.draft && data.lang === 'zh'))
@@ -17,7 +18,7 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft && data.la
 const entries = [
   { key: 'nav.trips' as const, path: '/trips/', image: tripPhoto, alt: '梅宁博带队勃艮第深度考察现场' },
   { key: 'nav.courses' as const, path: '/courses/', image: tastingPhoto, alt: '勃艮第高阶品鉴课程现场' },
-  { key: 'nav.join' as const, path: '/join/', image: undefined, alt: '' },
+  { key: 'nav.join' as const, path: '/join/', image: joinPhoto, alt: '爱勃艮第读者品鉴聚会现场' },
 ];
 ---
 

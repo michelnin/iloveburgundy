@@ -16,7 +16,7 @@ export const ui = {
     'nav.courses': '课程',
     'nav.join': '入群',
     'nav.about': '关于',
-    'home.hero': '写给中文读者的勃艮第葡萄酒指南',
+    'home.hero': '中文世界的勃艮第葡萄酒指南',
     'home.latest': '最新文章',
     'home.more': '查看全部文章',
     'home.entries': '更多入口',

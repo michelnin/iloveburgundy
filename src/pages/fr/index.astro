@@ -6,15 +6,16 @@ import { SITE, AUTHOR } from '../../consts';
 import portrait from '../../assets/images/ningbo-mei.jpg';
 import tripPhoto from '../../assets/images/trip-1.jpg';
 import tastingPhoto from '../../assets/images/tasting-1.jpg';
+import joinPhoto from '../../assets/images/join-1.jpg';
 
 const t = useTranslations('fr');
 const note = CHINESE_ONLY_NOTE.fr;
 
 // 英法版暂无对应栏目页，卡片一律指向无前缀的中文路由并标注（与导航同一规则）
 const entries = [
-  { label: 'Voyages', path: '/trips/', image: tripPhoto, alt: "Un voyage d'étude en Bourgogne mené par Ningbo Mei" },
-  { label: 'Cours', path: '/courses/', image: tastingPhoto, alt: 'Un cours de dégustation avancée à Shanghai' },
-  { label: 'Articles', path: '/notes/', image: undefined, alt: '' },
+  { label: 'Voyages', path: '/trips/', note: true, image: tripPhoto, alt: "Un voyage d'étude en Bourgogne mené par Ningbo Mei" },
+  { label: 'Cours', path: '/courses/', note: true, image: tastingPhoto, alt: 'Un cours de dégustation avancée à Shanghai' },
+  { label: t('nav.join'), path: '/join/', image: joinPhoto, alt: "Lecteurs réunis lors d’une dégustation I Love Burgundy", note: false },
 ];
 ---
 
@@ -61,7 +62,7 @@ const entries = [
               )}
               <span class="entry-label">
                 {item.label}
-                {note && <span class="nav-note">{note}</span>}
+                {item.note && note && <span class="nav-note">{note}</span>}
               </span>
             </a>
           </li>
