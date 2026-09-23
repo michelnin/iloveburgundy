@@ -1,0 +1,2 @@
+文章目录。Obsidian 通过 Enveloppe 插件把带 share: true 的笔记推送到这里。
+此文件仅用于让 git 保留空目录，不会被 Astro 读取（内容集合只匹配 .md / .mdx）。
