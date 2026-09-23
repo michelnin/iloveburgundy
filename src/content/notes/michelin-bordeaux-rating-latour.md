@@ -1,0 +1,84 @@
+---
+title: 米其林首评波尔多酒庄：一级庄拉图为何落榜
+description: 米其林首次评级波尔多酒庄，一级庄拉图挂零。我的判断：这跟品质无关，拉图只是被挑出来当引信的流量工具，米其林真正想插旗的是香槟、罗纳河谷、意大利、新世界这些没有分级的产区。
+date: 2026-09-23
+tags:
+  - 波尔多
+  - 米其林
+  - 1855分级
+  - 酒评
+lang: zh
+draft: false
+slug: michelin-bordeaux-rating-latour
+share: true
+---
+
+> 本文作者梅宁博，勃艮第葡萄酒专家、《勃艮第特级园》作者、《我爱勃艮第》系列视频作者。更新日期：2026-09-23。
+
+7 月初，《米其林指南》刚评完勃艮第酒庄，这才过了两个月就迫不及待地对波尔多的酒庄下手了。而这一次名单一出，比两个月前的效果还炸裂： 五大名庄之一的拉图酒庄（Château Latour）直接落榜，注意不是没进三颗葡萄的榜单，是连一颗葡萄都没有。先来看看这次评选出的结果。
+
+![图片](https://mmbiz.qpic.cn/sz_mmbiz_jpg/dtQTGrSPTJbaZ3gxHnicntaz1FIKqw8zHiaMukoVwaFyFjyY2bHoA5EIOaY5AO77texDrnHnBIbic4Y8tsQHqVBZx7p6m60w0DMkhD4GEiayWbc/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=0)
+
+## 完整名单
+
+规矩和餐厅星星一样：米其林自家评审打分，四档:三颗葡萄、两颗、一颗、入选。波尔多首批八十四家。
+
+**三颗葡萄（9家）**  
+
+左岸：拉菲、雄狮、Montrose 
+
+右岸：白马、飞卓、帕图斯、花堡、La Conseillante 
+
+苏玳：滴金
+
+**两颗葡萄（16家）**  
+
+左岸：木桐、玛歌、侯伯王、美讯、Les Carmes Haut-Brion、 宝玛、男爵、女爵、庞特卡耐 
+
+右岸：欧颂、金钟、Beau-Séjour Bécot、Canon、Troplong Mondot、Vieux Château Certan 
+
+苏玳：De Fargues
+
+**一颗葡萄（部分）**  
+
+左岸：爱士图、卡隆世家、靓茨伯、巴顿、布朗康田、史密斯拉菲特、骑士庄园 
+
+右岸：里鹏 
+
+苏玳：拉菲丽思、旭金堡
+
+ ......
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/dtQTGrSPTJbTqmnUgejP91cljCkycwviaKiarvic7HnWQgzDwEt3yNjHXgDhfllS0iaFN1vogjsFeS5xxfAJBMFNTuBEo1jGVXKFAaWWUAh23Gc/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=1)
+
+## 为什么拉图会落榜
+
+拉图作为 1855一级庄拿零分，国外专业媒体第一反应是米其林疯了。我不这么看。我之前写[米其林评勃艮第的那篇文章](https://mp.weixin.qq.com/s?__biz=Mzg5MTg1NTU3MA==&mid=2247510679&idx=1&sn=388033dea9f885654346b062ca9d5aa2&scene=21#wechat_redirect)时就说过：米其林指南无论是评选餐厅还是酒庄，都得制造一个爆点，不然没吸引不了足够注意力。
+
+评勃艮第酒庄，扮演爆点的是Armand Rousseau，爱好者心目里真正的白月光，只给了人家一颗星，爱好者圈子炸锅，米其林要的就是这种效果。波尔多这次，“流量工具”换成了拉图。所以拉图挂零，跟它的品质没有半毛钱关系，它只是被挑出来当引信的那一家。你都用不着讨论这个结果是怎么评选出来的，拉图就是米其林的棋子。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/dtQTGrSPTJbKdmCrNCXbahO3JvuoBuLu7D1GeV3oxNmzAJ13ia59GTZPrayPteM36aicxFGHAicbvs5zn41R6jTn4Cwy24Cz609MXQH3UFCiadk/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=2)
+
+## 米其林的一盘棋
+
+米其林评勃艮第酒庄，虽然把Leroy 老太太都拉出来站台，但真实影响力小到可以忽略不计。众所周知，勃艮第的分级基础是葡萄园，不是酒庄（品牌），米其林那套给酒庄分级的逻辑根本挑战不了这个根基；顶级酒庄的名字在藏家心里早已不可撼动，米其林说了不算；勃艮第又是彻头彻尾的卖方市场，行情再冷，好酒照样供不应求，一份榜单动不了它分毫。
+
+可你有没有想过，米其林推葡萄酒评级，本来就不是冲着勃艮第和波尔多来的。评勃艮第是为评波尔多铺路：反正动不了勃艮第什么，先拿它试水，看舆论怎么反应。评波尔多那是更进一步，因为评波尔多等于向一百七十年前的 1855 分级公开叫板。某些列级庄当然不高兴，可不高兴也就不高兴，米其林根本不在乎，1855 列级庄一共才六十来家，得罪光了也就那么点人。
+
+这盘棋真正的落点，在勃艮第和波尔多之外：罗纳河谷没有分级，阿尔萨斯没有分级......这些权力真空的产区才是米其林想插旗的地方。再往外，皮埃蒙特、托斯卡纳，再到美国、澳大利亚，全是没有权威分级、等着被"米其林化"的空白。先拿波尔多和勃艮第这两个最响的名字撬开话题、攒够公信，再把这套评级铺向全世界——这才是米其林要干的事。
+
+## 米其林的影响力
+
+那米其林评波尔多，真能撼动这些列级庄？很难说有。1855 分级站了一百七十年，这世上要真有什么能改它，早该改了。帕克当年一己之力影响了波尔多的酿造风格几十年，即便如此都没动摇分级的地基；米其林靠一年发一次指南，更没戏。更不用说，在一个社交媒体盛行的年代，YouTube 、TikTok、小红书上到处都是“专家”，古早的指南早就被稀释了。
+
+这份榜单说明不了拉图的品质，也大概率改变不了 1855 的格局。它的用处只有一个：替米其林在葡萄酒世界买下第一波注意力，再拿这波注意力去别处开疆拓土。
+
+米其林评餐厅的专业我服，那是靠 126 年的积累辛辛苦苦攒出来的。葡萄酒这摊，还是放过吧。
+
+看完米其林这份榜单，你最为哪家酒庄叫屈？欢迎在评论区谈谈你的观点。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/dtQTGrSPTJYzojNNECXJbRdZHiaWZiazvcN5YGb1MoicM2wicZl0eib0bOtX1psd1drUxpoKTaYCD513lobkYndUq7f003cV9GibiasRj4iaWPuNlWA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=3)
+
+---
+
+> 梅宁博，勃艮第葡萄酒专家、《勃艮第特级园》作者、《我爱勃艮第》系列视频作者。与 Jasper Morris MW 联合创办 Inside Burgundy 中文版并任主编。自 2011 年起每年赴勃艮第实地考察，累计走访酒庄逾 500 家，为中国藏家主持勃艮第深度考察与高阶品鉴课程。更多内容见 [ningbomei.com](https://ningbomei.com)。
